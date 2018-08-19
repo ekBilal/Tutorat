@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cours.cs" />
+    <Compile Include="Demande.cs" />
+    <Compile Include="Etat.cs" />
     <Compile Include="Etudiant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
