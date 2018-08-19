@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +10,7 @@ namespace Models
 	{
 		[Key]
 		public int IdEtudiant { get; set; }
-		[Required, MinLength(5), MaxLength(5), Index(IsUnique = true)]
+		[Required, MinLength(8), MaxLength(8), Index(IsUnique = true)]
 		public string PSR { get; set; }
 		[Required]
 		public string Nom { get; set; }
@@ -18,7 +19,15 @@ namespace Models
 		[Required]
 		public bool Desinscrit { get; set; }
 
-		public virtual ObservableCollection<Cours> Cours { get; set; }
-		public virtual ObservableCollection<Cours> Tuteurs { get; set; }
+		public virtual ICollection<Cours> Cours { get; set; }
+		public virtual ICollection<Cours> Tuteurs { get; set; }
+
+
+
+		public Etudiant()
+		{
+			this.Cours = new HashSet<Cours>();
+			this.Tuteurs = new HashSet<Cours>();
+		}
 	}
 }
