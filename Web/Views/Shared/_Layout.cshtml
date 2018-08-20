@@ -25,10 +25,12 @@
 					<li>@Html.ActionLink("Cours", "Index", "Cours")</li>
 					<li>@Html.ActionLink("Etudiants", "Index", "Etudiants")</li>
 					<li>@Html.ActionLink("Demandes", "Index", "Demandes")</li>
+					@Html.Partial("_LoginPartial")
 				</ul>
 			</div>
 		</div>
 	</div>
+
 	<div class="container body-content">
 		@RenderBody()
 		<hr />

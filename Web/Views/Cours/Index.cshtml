@@ -25,11 +25,14 @@
             @Html.DisplayFor(modelItem => item.Nom)
         </td>
         <td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCours }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCours }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCours })
-        </td>
+		<td>
+			@Html.ActionLink("Details", "Details", new { id = item.IdCours })
+			@if (Request.IsAuthenticated)
+			{
+				@Html.ActionLink("Edit", "Edit", new { id = item.IdCours })
+				@Html.ActionLink("Delete", "Delete", new { id = item.IdCours })
+			}
+		</td>
     </tr>
 }
 

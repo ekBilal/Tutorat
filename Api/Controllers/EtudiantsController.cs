@@ -37,20 +37,10 @@ namespace API.Controllers
 			return Ok(etudiant);
 		}
 
-		[ResponseType(typeof(Etudiant))]
-		public async Task<IHttpActionResult> GetEtudiant(string psr)
-		{
-			Etudiant etudiant = await db.Etudiant.FindAsync(psr);
-			if (etudiant == null)
-			{
-				return NotFound();
-			}
 
-			return Ok(etudiant);
-		}
 
 		// PUT: api/Etudiants/5
-		[ResponseType(typeof(void))]
+		[ResponseType(typeof(Etudiant))]
 		public async Task<IHttpActionResult> PutEtudiant(int id, Etudiant etudiant)
 		{
 			if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -61,6 +51,7 @@ namespace API.Controllers
 			try
 			{
 				await db.SaveChangesAsync();
+				return Ok(etudiant);
 			}
 			catch (DbUpdateConcurrencyException)
 			{
@@ -85,8 +76,7 @@ namespace API.Controllers
 
 			db.Etudiant.Add(etudiant);
 			await db.SaveChangesAsync();
-
-			return CreatedAtRoute("DefaultApi", new { id = etudiant.IdEtudiant }, etudiant);
+			return Ok(etudiant);
 		}
 
 		// DELETE: api/Etudiants/5

@@ -8,12 +8,14 @@ using Newtonsoft.Json;
 
 namespace Web.Controllers
 {
+	[System.Web.Mvc.Authorize]
 	public class CoursController : Controller
 	{
 		private ServiceApi api = ServiceApi.API;
 		private readonly string uri = "Cours/";
 
 		// GET: Cours
+		[AllowAnonymous]
 		public async Task<ActionResult> Index()
 		{
 			var result = await api.Get(uri);
@@ -22,6 +24,7 @@ namespace Web.Controllers
 		}
 
 		// GET: Cours/Details/5
+		[AllowAnonymous]
 		public async Task<ActionResult> Details(int? id)
 		{
 			if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

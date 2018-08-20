@@ -23,12 +23,16 @@
 		</dt>
 
 		<dd>
-			@Html.DisplayFor(model => model.Tuteurs.Count)
+			@Html.Display("modifier avec le nombre de tuteurs")
 		</dd>
 
 	</dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCours }) |
-    @Html.ActionLink("Back to List", "Index")
+	@if (Request.IsAuthenticated)
+	{
+		@Html.ActionLink("Edit", "Edit", new { id = Model.IdCours })
+		@Html.ActionLink("Delete", "Delete", new { id = Model.IdCours })
+	}
+	@Html.ActionLink("Back to List", "Index")
 </p>

@@ -10,6 +10,7 @@ using System;
 
 namespace Web.Controllers
 {
+	[Authorize]
 	public class DemandesController : Controller
 	{
 		private ServiceApi api = ServiceApi.API;

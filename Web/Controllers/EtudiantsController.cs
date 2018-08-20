@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace Web.Controllers
 {
+	[System.Web.Mvc.Authorize]
 	public class EtudiantsController : Controller
 	{
 		private ServiceApi api = ServiceApi.API;
@@ -31,6 +32,7 @@ namespace Web.Controllers
 			Session["etudiant"] = etudiant;
 			return View(etudiant);
 		}
+
 
 		// GET: Etudiants/Create
 		public ActionResult Create()

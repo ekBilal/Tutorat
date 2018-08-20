@@ -1,0 +1,28 @@
+﻿@using Microsoft.Azure.ActiveDirectory.GraphClient
+@model Models.Etudiant
+
+@{
+	ViewBag.Title = "Profile";
+}
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-bordered table-striped">
+	<tr>
+		<td>Psr</td>
+		<td>@Model.PSR</td>
+	</tr>
+	<tr>
+		<td>Nom</td>
+		<td>@Model.Nom</td>
+	</tr>
+	<tr>
+		<td>Prenom</td>
+		<td>@Model.Prenom</td>
+	</tr>
+
+</table>
+
+@if (!Model.Desinscrit)
+{
+	<input type="submit" value="Inscription" class="btn btn-primary" onclick="@("location.href='"+ Url.Action("Inscription","UserProfile", Model)+ "'")" />
+}
