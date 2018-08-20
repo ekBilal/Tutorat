@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Models.Cours>
+
+
+@{
+	ViewBag.Title = "Ajouter un cours";
+}
+
+<h2>Ajouter un cours</h2>
+@using (Html.BeginForm())
+{
+	@Html.DropDownList("IdCours", new SelectList(Model, "IdCours", "Nom"), "Cours")
+	<input type="submit" value="Ajouter" class="btn btn-default" />
+
+}
