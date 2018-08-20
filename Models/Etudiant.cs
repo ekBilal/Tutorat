@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,16 +17,8 @@ namespace Models
 		public string Prenom { get; set; }
 		[Required]
 		public bool Desinscrit { get; set; }
-
-		public virtual ICollection<Cours> Cours { get; set; }
-		public virtual ICollection<Cours> Tuteurs { get; set; }
-
-
-
-		public Etudiant()
-		{
-			this.Cours = new HashSet<Cours>();
-			this.Tuteurs = new HashSet<Cours>();
-		}
+		[JsonIgnore]
+		public virtual IList<Cours> Tuteurs { get; set; }
+		public virtual IList<Cours> Cours { get; set; }
 	}
 }

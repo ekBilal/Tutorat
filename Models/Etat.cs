@@ -1,6 +1,6 @@
 ﻿namespace Models
 {
-	public enum  Etat
+	public enum Etat
 	{
 		EnAttente,
 		Refuse,
